@@ -2,35 +2,72 @@
 <html lang="es/US">
     <head>
         <title>Derecho Publico</title>
+        <link rel="icon" href="imgs/logo.png" type="image/png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            #t {
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                font-family: monospace;
+                font-size: large;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                background-color: black;
+            }
+            #page {
+                display: grid;
+                grid-template-rows: auto minmax(0, 1fr) auto;
+                width: 100%;
+                height: 100vh;
+                height: 100dvh;
+            }
+            #top-bar {
                 display: flex;
-                flex-grow: 100%;
                 justify-content: center;
                 align-items: center;
                 height: 60px;
-                background-color: salmon;
+                gap: 15px;
+                position: relative;
+                background-color: rgba(117, 117, 117, 0.50);
             }
-            #b {
+            #bottom-bar {
                 display: flex;
-                align-self: center;
-                justify-content: space-evenly;
+                justify-content: center;
                 align-items: center;
-                height: 40px;
-                background-color: brown;
+                gap: 60px;
+                padding: 12px;
+            }
+            #map {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+            button {
+                font-family: monospace;
+                font-size: larger;
+                width: 400px;
+                height: 60px;
             }
         </style>
     </head>
     <body>
-        <div id="t">
-            <img src="logo1.png" height="50px">
-            <h1>Derecho Publico</h1>
-        </div>
-        <div id="b">
-            <button>Reportar</button>
-            <button>Avisar</button>
+        <div id="page">
+            <header id="top-bar">
+                <img width="50px" src="imgs/logo.png" type="image/png">
+                <h1>Derecho Publico</h1>
+            </header>
+            <main id="map">
+                <p>mapa va aca</p>
+            </main>
+            <footer id="bottom-bar">
+                <button id="report">Reportar</button>
+                <button id="inform">Informar</button>
+            </footer>
         </div>
     </body>
 </html>
