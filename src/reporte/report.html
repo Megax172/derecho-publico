@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es/US">
+    <head>
+        <title>Reportar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../imgs/logo.png" type="image/png">
+    </head>
+    <body>
+        <div>
+            <h3>Reporte / Denuncia</h3>
+            <hr>
+            <form>
+                <h4>Tipo de reporte</h4>
+                <input id="report-t" type="radio" name="rep-type" value="falta-inf">
+                <label for="report-t">Reporte; Falta acceso universal</label>
+                <br>
+                <input id="inform-t" type="radio" name="rep-type" value="hay-inf">
+                <label for="inform-t">Informar; Existe acceso universal</label>
+                <br>
+                <input id="temp-t" type="radio" name="rep-type" value="temporal">
+                <label for="temp-t">Temporal; Actualización puntual</label>
+                <h4>Nivel de acceso</h4>
+                <p>Si no hay acceso universal indique el acceso por otro medio</p>
+                <input id="high-a" type="radio" name="access-lev" value="alto">
+                <label for="high-a">Aceptable</label>
+                <br>
+                <input id="med-a" type="radio" name="access-lev value="medio">
+                <label for="med-a">Mejorable</label>
+                <br>
+                <input id="low-a" type="radio" name="access-lev" value="bajo">
+                <label for="low-a">Deficiente</label>
+                <br>
+                <input id="not-a" type="radio" name="access-lev" value="nulo">
+                <label for="not-a">Inaccesible</label>
+                <h4>Comentarios adicionales</h4>
+                <input type="text" name="comm">
+                <h4>Dirección a reportar</h4>
+                <p>aca va api de google maps o similares para seleccionar direccion</p>
+                <h4>Evidencia fotográfica</h4>
+                <input type="file" name="evidencia">
+                <br>
+                <input id="button-confirm" type="submit" value="Confirmar">
+                <button id="button-cancel">Cancelar</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -21,8 +21,6 @@ body {
     align-items: center;
     height: 60px;
     gap: 15px;
-    position: relative;
-    background-color: rgba(117, 117, 117, 0.50);
 }
 #bottom-bar {
     display: flex;
