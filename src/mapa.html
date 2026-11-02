@@ -1,5 +1,58 @@
 <!DOCTYPE html>
-<html>
-    <head></head>
-    <body></body>
+<html lang="es/US">
+    <head>
+        <title>Derecho Público</title>
+        <meta charset="UTF-8">
+        <meta name="theme-color" content="#e9e7e5">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../imgs/placehold.svg" type="image/svg">
+        <link rel="stylesheet" href="css/mapa.css">
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css">
+    </head>
+    <body>
+        <main id="app">
+            <section class="menu-mapa" id="menu">
+                <header class="barra-sup-mapa">
+                    <button id="boton-retorno">Derecho<br>Público</button>
+                    <div class="acciones-mapa">
+                        <button class="boton-barra-sup" id="boton-buscar">
+                            <img src="../imgs/icono-lupa.png" width="40px">
+                        </button>
+                        <button class="boton-barra-sup" id="boton-menu-desp">
+                            <img src="../imgs/icono-menu.png" width="40px">
+                        </button>
+                    </div>
+                </header>
+                <div id="mapa"></div> <!-- contenedor del mapa principal -->
+            </section>
+            <div class="barra-busqueda oculto" id="barra-busqueda">
+                <input id="busca-direccion" type="search" placeholder="Buscar dirección o lugar" autocomplete="off">
+                <button id="busca-enter">Buscar</button>
+                <button id="busca-cerrar">X</button>
+                <div id="busca-resultados"></div>
+            </div>
+            <aside class="barra-lado oculto" id="barra-lado">
+                <button id="lado-cerrar">X</button>
+                <h2>Menú principal</h2>
+                <button class="lado-item" id="lado-mapa">Ver mapa</button>
+                <button class="lado-item requiere-sesion" id="lado-reportar">Crear denuncia</button>
+                <p class="lado-aviso" id="nota-invitado">Modo invitado: solo puedes consultar el mapa.</p>
+                <button class="lado-item" id="lado-salir">Volver al inicio</button>
+            </aside>
+            <div class="mapa-leyenda">
+                <span><i class="mapa-leyenda-p azul"></i> Falta infraestructura</span>
+                <span><i class="mapa-leyenda-p verde"></i> Existe infraestructura</span>
+                <span><i class="mapa-leyenda-p cian"></i> Aviso temporal</span>
+            </div>
+            <footer class="barra-inf-mapa requiere-sesion">
+                <button class="barra-inf-boton" id="boton-reportar">Denunciar</button>
+            </footer>
+            <div class="mapa-error oculto" id="mapa-error" ></div>
+            </section>
+        </main>
+        <script src=""></script>
+        <script src=""></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+    </body>
 </html>

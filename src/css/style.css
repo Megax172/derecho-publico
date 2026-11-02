@@ -49,12 +49,22 @@ textarea:focus-visible {
     outline-offset: 2px;
 }
 
-.menu {
+h1 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+    line-height: .98;
+    margin: 0 0 42px;
+}
+
+#menu {
     position: absolute;
     inset: 0;
 }
+/* Cosas comunes entre todos los css arriba :) */
 
-#menu-inicio {
+.menu-inicio {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,22 +76,13 @@ textarea:focus-visible {
     background-size: 34px 34px;
 }
 
-h1 {
-    text-align: center;
-    font-family: Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(2.2rem, 8vw, 3.2rem);
-    line-height: .98;
-    margin: 0 0 42px;
-}
-
-#acciones-inicio {
+.acciones-inicio {
     width: min(100%, 340px);
     display: grid;
     gap: 16px;
 }
 
-#boton-inicio {
+.boton-inicio {
   border: 1px solid #c8c8c6;
   border-radius: 40px;
   min-height: 62px;
