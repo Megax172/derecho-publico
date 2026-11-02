@@ -105,7 +105,7 @@ h1 {
   align-items: center;
   padding: 6px 12px;
   text-align: center;
-  font-size: 10;
+  font-size: 1rem;
   line-height: .95;
 }
 
@@ -144,7 +144,7 @@ h1 {
     background: rgba(255,255,255,.9);
     padding: 9px 11px;
     border-radius: 12px;
-    font-size: 10;
+    font-size: 1rem;
     box-shadow: var(--shadow);
     pointer-events: none;
 }
@@ -212,7 +212,7 @@ h1 {
 
 .lado-aviso {
     color: var(--muted);
-    font-size: 5;
+    font-size: .85rem;
     line-height: 1.4;
 }
 
@@ -289,3 +289,7 @@ h1 {
         width: 340px;
     }
 }
+
+.oculto { display: none !important; }
+
+.resultado-busqueda { display:block; width:100%; padding:10px; text-align:left; border:0; border-bottom:1px solid #eee; background:white; cursor:pointer; }

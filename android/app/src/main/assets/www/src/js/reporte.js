@@ -3,6 +3,7 @@
     const params = new URLSearchParams(window.location.search);
     const reportType = params.get("type") || "Denuncia";
     const guestMode = params.get("mode") === "guest";
+    if (guestMode) { window.location.replace("mapa.html?mode=guest"); return; }
 
     function toast(message) {
         const el = $("toast");
@@ -13,13 +14,13 @@
     }
 
     function backToMap(replace = false) {
-        const url = `map.html?mode=${guestMode ? "guest" : "user"}`;
+        const url = `mapa.html?mode=${guestMode ? "guest" : "user"}`;
         if (replace) window.location.replace(url);
         else window.location.href = url;
     }
 
     $("titulo-reporte").textContent = reportType === "Aviso" ? "Crear aviso" : "Crear denuncia";
-    $("tipo-rep").value = reportType === "Aviso" ? "Aviso temporal" : reportType;
+    $("tipo-rep").value = reportType === "Aviso" ? "aviso-temp" : "denuncia";
 
     $("boton-reporte-atras").addEventListener("click", () => backToMap());
     $("cancelar-repor").addEventListener("click", () => backToMap(true));

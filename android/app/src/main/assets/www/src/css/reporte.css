@@ -128,7 +128,7 @@ h1 {
     min-height: 82px;
 }
 
-.location-row {
+.secc-ubicacion {
     display: flex;
     gap: 8px;
 }
@@ -158,7 +158,7 @@ h1 {
 
 .aviso-ayuda {
     color: var(--muted); 
-    font-size: 10;
+    font-size: .75rem;
     margin: 0;
     line-height: 1.4;
 }
@@ -188,13 +188,13 @@ h1 {
     pointer-events: none;
 }
 
-.preview-evid {
+#preview-evid {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-.preview-evid img {
+#preview-evid img {
     width: 70px;
     height: 70px;
     border-radius: 8px;
@@ -217,3 +217,5 @@ h1 {
         padding-top: 35px;
     }
 }
+
+.oculto { display: none !important; }

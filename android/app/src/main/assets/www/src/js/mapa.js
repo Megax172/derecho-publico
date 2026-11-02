@@ -15,7 +15,7 @@
     document.querySelectorAll(".requiere-sesion").forEach(el => {
         el.classList.toggle("oculto", guestMode);
     });
-    $("guest-note").classList.toggle("oculto", !guestMode);
+    $("nota-invitado").classList.toggle("oculto", !guestMode);
 
     function initializeMap() {
         const token = window.APP_CONFIG && window.APP_CONFIG.mapboxToken;
@@ -26,9 +26,9 @@
         }
 
         mapboxgl.accessToken = token;
-        const center = window.APP_CONFIG.initialCenter || [-70.6483, -33.4569];
+        const center = window.APP_CONFIG.initialCenter || [-73.0503, -36.82699];
         map = new mapboxgl.Map({
-            container: "map",
+            container: "mapa",
             style: "mapbox://styles/mapbox/streets-v12",
             center,
             zoom: window.APP_CONFIG.initialZoom || 13,
@@ -39,11 +39,11 @@
             $("mapa-error").classList.add("oculto");
             // Marcadores ilustrativos; no representan reportes reales.
             [
-                { coords: [-70.655, -33.451], color: "#4268f5" },
-                { coords: [-70.641, -33.457], color: "#68c9ef" },
-                { coords: [-70.649, -33.464], color: "#7ba785" },
-                { coords: [-70.665, -33.455], color: "#4268f5" },
-                { coords: [-70.635, -33.448], color: "#68c9ef" }
+                { coords: [-73.0503, -36.8270], color: "#4268f5" },
+                { coords: [-73.0590, -36.8230], color: "#68c9ef" },
+                { coords: [-73.0430, -36.8310], color: "#7ba785" },
+                { coords: [-73.0640, -36.8330], color: "#4268f5" },
+                { coords: [-73.0370, -36.8190], color: "#68c9ef" }
             ].forEach(p => new mapboxgl.Marker({ color: p.color }).setLngLat(p.coords).addTo(map));
         });
         map.on("error", () => {
@@ -57,34 +57,31 @@
             toast("El modo invitado solo permite consultar el mapa.");
             return;
         }
-        const url = `report.html?type=${encodeURIComponent(kind)}&mode=${guestMode ? "guest" : "user"}`;
+        const url = `reporte.html?type=${encodeURIComponent(kind)}&mode=${guestMode ? "guest" : "user"}`;
         window.location.href = url;
     }
 
     $("boton-retorno").addEventListener("click", () => {
         window.location.href = "index.html";
     });
-    $("lado-cerrar").addEventListener("click", () => {
-        window.location.href = "index.html";
-    });
-    $("boton-menu-desp").addEventListener("click", () => $("side-menu").classList.remove("oculto"));
-    $("lado-cerrar").addEventListener("click", () => $("side-menu").classList.add("oculto"));
-    $("lado-mapa").addEventListener("click", () => $("side-menu").classList.add("oculto"));
-    $("lado-reportar").addEventListener("click", () => { $("side-menu").classList.add("oculto"); openReport("Denuncia"); });
+        $("boton-menu-desp").addEventListener("click", () => $("barra-lado").classList.remove("oculto"));
+    $("lado-cerrar").addEventListener("click", () => $("barra-lado").classList.add("oculto"));
+    $("lado-mapa").addEventListener("click", () => $("barra-lado").classList.add("oculto"));
+    $("lado-reportar").addEventListener("click", () => { $("barra-lado").classList.add("oculto"); openReport("Denuncia"); });
     $("boton-reportar").addEventListener("click", () => openReport("Denuncia"));
 
     $("boton-buscar").addEventListener("click", () => {
         $("barra-busqueda").classList.remove("oculto");
         $("busca-direccion").focus();
     });
-    $("busca-cerrar").addEventListener("click", () => $("search-panel").classList.add("oculto"));
+    $("busca-cerrar").addEventListener("click", () => $("barra-busqueda").classList.add("oculto"));
 
     async function searchAddress() {
         const query = $("busca-direccion").value.trim();
         if (!query) return;
         const token = window.APP_CONFIG && window.APP_CONFIG.mapboxToken;
         if (!token || token.includes("REEMPLAZAR_")) {
-            toast("nuh uh");
+            toast("Configura el token público de Mapbox.");
             return;
         }
         const results = $("busca-resultados");
@@ -98,7 +95,7 @@
             if (!data.features.length) { results.textContent = "No se encontraron resultados."; return; }
             data.features.forEach(feature => {
                 const button = document.createElement("button");
-                button.className = "search-result";
+                button.className = "resultado-busqueda";
                 button.textContent = feature.place_name;
                 button.addEventListener("click", () => {
                     if (map) map.flyTo({ center: feature.center, zoom: 16 });
