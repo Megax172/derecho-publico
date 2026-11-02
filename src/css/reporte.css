@@ -1,0 +1,219 @@
+:root {
+    --paper: #efedeb;
+    --surface: rgba(255,255,255,.93);
+    --ink: #222321;
+    --muted: #6f706d;
+    --line: #c9c9c7;
+    --accent: #58c2cb;
+    --blue: #4268f5;
+    --cyan: #68c9ef;
+    --green: #7ba785;
+    --shadow: 0 4px 14px rgba(26, 34, 29, .14);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    color: var(--ink);
+    background: var(--paper);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #70bfc5;
+    outline-offset: 2px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+    line-height: .98;
+    margin: 0 0 42px;
+}
+
+#menu {
+    position: absolute;
+    inset: 0;
+}
+/* Cosas comunes entre todos los css arriba :) */
+
+.menu-reporte {
+    overflow-y: auto;
+    padding: max(18px, env(safe-area-inset-top)) 18px max(25px, env(safe-area-inset-bottom));
+    background: var(--paper);
+}
+
+.barra-sup-reporte {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto 24px;
+    max-width: 520px;
+}
+
+.barra-sup-reporte h1 {
+    font: 500 2.0rem Georgia, serif;
+    margin: 0 0 4px;
+}
+
+.barra-sup-reporte p {
+    color: var(--muted);
+    margin: 0;
+    font-size: .85rem;
+}
+
+#boton-reporte-atras {
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background: white;
+    font-size: 1.25rem;
+    flex-shrink: 0; 
+}
+
+.titulo-secc {
+    font-size: .86rem;
+    font-weight: 700;
+    margin-top: 7px;
+}
+
+#reporte-formulario {
+    max-width: 520px;
+    margin: 0 auto;
+    display: grid;
+    gap: 9px;
+}
+
+#reporte-formulario select,
+#reporte-formulario input[type="text"],
+#reporte-formulario textarea {
+    width: 100%;
+    padding: 13px 12px;
+    background: rgba(255,255,255,.88);
+    border: 1px solid #c8c8c6;
+    border-radius: 9px;
+    color: var(--ink);
+}
+
+#reporte-formulario textarea {
+    resize: vertical;
+    min-height: 82px;
+}
+
+.location-row {
+    display: flex;
+    gap: 8px;
+}
+
+.secc-ubicacion input {
+    min-width: 0;
+    flex: 1;
+}
+
+.sec,
+.pri {
+    border: 1px solid #c8c8c6;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.sec {
+    background: #f8f7f5;
+}
+
+.pri {
+    color: white;
+    background: #252a28;
+    border-color: #252a28;
+}
+
+.aviso-ayuda {
+    color: var(--muted); 
+    font-size: 10;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.subir-evid {
+    min-height: 130px;
+    border: 1px dashed #aaa;
+    border-radius: 12px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,.62);
+    cursor: pointer;
+}
+
+.camara {
+    font-size: 2rem;
+}
+
+.input-evid {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.preview-evid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.preview-evid img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--line);
+}
+
+.acciones-formulario {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.acciones-formulario button {
+    flex: 1;
+}
+
+@media (min-width: 700px) {
+    .menu-reporte {
+        padding-top: 35px;
+    }
+}

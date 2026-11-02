@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="es/US">
     <head>
-        <title>Reportar</title>
+        <title>Derecho Público</title>
         <meta charset="UTF-8">
+        <meta name="theme-color" content="#e9e7e5">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="../../imgs/logo.png" type="image/png">
+        <link rel="icon" href="../imgs/placehold.svg" type="image/svg">
+        <link rel="stylesheet" href="css/reporte.css">
     </head>
     <body>
-        <div>
-            <h3>Reporte / Denuncia</h3>
-            <hr>
-            <form>
-                <h4>Tipo de reporte</h4>
-                <input id="report-t" type="radio" name="rep-type" value="falta-inf">
-                <label for="report-t">Reporte; Falta acceso universal</label>
-                <br>
-                <input id="inform-t" type="radio" name="rep-type" value="hay-inf">
-                <label for="inform-t">Informar; Existe acceso universal</label>
-                <br>
-                <input id="temp-t" type="radio" name="rep-type" value="temporal">
-                <label for="temp-t">Temporal; Actualización puntual</label>
-                <h4>Nivel de acceso</h4>
-                <p>Si no hay acceso universal indique el acceso por otro medio</p>
-                <input id="high-a" type="radio" name="access-lev" value="alto">
-                <label for="high-a">Aceptable</label>
-                <br>
-                <input id="med-a" type="radio" name="access-lev value="medio">
-                <label for="med-a">Mejorable</label>
-                <br>
-                <input id="low-a" type="radio" name="access-lev" value="bajo">
-                <label for="low-a">Deficiente</label>
-                <br>
-                <input id="not-a" type="radio" name="access-lev" value="nulo">
-                <label for="not-a">Inaccesible</label>
-                <h4>Comentarios adicionales</h4>
-                <input type="text" name="comm">
-                <h4>Dirección a reportar</h4>
-                <p>aca va api de google maps o similares para seleccionar direccion</p>
-                <h4>Evidencia fotográfica</h4>
-                <input type="file" name="evidencia">
-                <br>
-                <input id="button-form" type="submit" value="Confirmar">
-                <button id="button-form">Cancelar</button>
-            </form>
-        </div>
+        <main id="app">
+            <section class="menu-reporte" id="menu">
+                <header class="barra-sup-reporte">
+                    <button id="boton-reporte-atras">
+                        <!-- icono retornar aca -->
+                    </button>
+                    <div>
+                        <h1 id="titulo-reporte">Denuncia / Aviso</h1>
+                        <p id="sub-reporte">¡Ayúdanos a mejorar tu calidad de vida!</p>
+                    </div>
+                </header>
+                <form id="reporte-formulario">
+                    <label class="titulo-secc" for="tipo-rep">Tipo de reporte</label>
+                    <select id="tipo-rep" required>
+                        <option value="denuncia">Denuncia; Falta acceso universal</option>
+                        <option value="informar">Informar; Existe acceso universal</option>
+                        <option value="aviso-temp">Aviso temporal</option>
+                    </select>
+                    <label class="titulo-secc" for="niv-acceso">Nivel de accesibilidad</label>
+                    <select id="niv-acceso" required>
+                        <option value="bueno">Accesible</option>
+                        <option value="medio">Mejorable</option>
+                        <option value="bajo">Deficiente</option>
+                        <option value="nulo">Inaccesible</option>
+                    </select>
+                    <label class="titulo-secc" for="comentarios">Comentario sobre la ubicación</label>
+                    <textarea id="comentarios" rows="3" placeholder="Describa el problema (opcional)"></textarea>
+                    <label class="titulo-secc" for="ubicacion">Ubicación GPS o dirección</label>
+                    <div class="secc-ubicacion">
+                        <input id="ubicacion" type="text" placeholder="Dirección o coordenadas" required>
+                        <button type="button" id="gps-boton" class="sec">GPS</button>
+                    </div>
+                    <p id="estado-gps" class="aviso-ayuda">
+                        Puedes escribir una dirección o usar tu ubicación actual.
+                    </p>
+                    <label class="titulo-secc" for="evidencia">Adjuntar imágenes</label>
+                    <label class="subir-evid" for="evidencia">
+                        <span class="camara">
+                            <!-- icono de camara aca -->
+                        </span>
+                        <strong>Seleccionar imágenes</strong>
+                        <span class="aviso-ayuda">Puedes adjuntar más de una</span>
+                    </label>
+                    <input id="imagenes" type="file" accept="image/*" multiple class="input-evid">
+                    <div id="preview-evid"></div>
+                    <div class="acciones-formulario">
+                        <button type="button" class="sec" id="cancelar-repor">Cancelar</button>
+                        <button type="submit" class="pri">Confirmar</button>
+                    </div>
+                </form>
+            </section>
+            <div id="toast" class="toast oculto" role="status"></div>
+        </main>
+        <script src="js/reporte.js"></script>
     </body>
 </html>

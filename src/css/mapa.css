@@ -149,8 +149,7 @@ h1 {
     pointer-events: none;
 }
 
-.mapa-leyenda
-span { 
+.mapa-leyenda span { 
     display: flex;
     align-items: center;
     gap: 7px;
@@ -187,8 +186,7 @@ span {
     padding: 68px 20px 24px;
 }
 
-.barra-lado
-h2 {
+.barra-lado h2 {
     font: 500 1.8rem Georgia, serif;
     margin: 0 0 25px;
 }
@@ -233,8 +231,7 @@ h2 {
     gap: 8px;
 }
 /* amigo que calvario */
-.barra-busqueda
-input {
+.barra-busqueda input {
     flex: 1;
     min-width: 130px;
     border: 1px solid var(--line);
@@ -277,4 +274,18 @@ input {
     padding: 12px;
     border-radius: 10px;
     font-size: .85rem;
+}
+
+@media (min-width: 700px) {
+    .mapa-leyenda {
+        left: 18px;
+        bottom: 100px;
+        font-size: .82rem;
+    }
+    .barra-inf-mapa {
+        left: auto;
+        right: 24px;
+        bottom: 24px;
+        width: 340px;
+    }
 }

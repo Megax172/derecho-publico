@@ -96,3 +96,9 @@ h1 {
   font-size: 1.15rem;
   font-weight: 600;
 }
+
+@media (min-width: 700px) {
+    .menu-inicio {
+        padding: 50px;
+    }
+}
